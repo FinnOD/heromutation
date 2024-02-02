@@ -28,7 +28,13 @@ devDependencies:
   '@ulixee/cloud':
     specifier: 2.0.0-alpha.25
     version: 2.0.0-alpha.25
+  '@ulixee/execute-js-plugin':
+    specifier: 2.0.0-alpha.25
+    version: 2.0.0-alpha.25
   '@ulixee/hero-core':
+    specifier: 2.0.0-alpha.25
+    version: 2.0.0-alpha.25
+  '@ulixee/hero-interfaces':
     specifier: 2.0.0-alpha.25
     version: 2.0.0-alpha.25
   '@ulixee/hero-plugin-utils':
