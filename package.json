@@ -1,0 +1,30 @@
+{
+    "name": "pluginexample",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "build": "tsc",
+        "dev": "node build/index.js"
+    },
+    "keywords": [],
+    "license": "",
+    "author": "",
+    "dependencies": {
+        "@ulixee/hero": "2.0.0-alpha.25",
+        "ws": "^8.16.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.9",
+        "@types/ws": "^8.5.10",
+        "@typescript-eslint/eslint-plugin": "^6.19.1",
+        "@typescript-eslint/parser": "^6.19.1",
+        "@ulixee/cloud": "2.0.0-alpha.25",
+        "@ulixee/hero-core": "2.0.0-alpha.25",
+        "@ulixee/hero-plugin-utils": "2.0.0-alpha.25",
+        "@ulixee/net": "2.0.0-alpha.25",
+        "@ulixee/unblocked-specification": "2.0.0-alpha.25",
+        "eslint": "^8.56.0",
+        "prettier": "^3.2.4",
+        "typescript": "^5.3.3"
+    }
+}
