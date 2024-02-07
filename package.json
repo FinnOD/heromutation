@@ -19,6 +19,7 @@
         "@typescript-eslint/eslint-plugin": "^6.19.1",
         "@typescript-eslint/parser": "^6.19.1",
         "@ulixee/cloud": "2.0.0-alpha.25",
+        "@ulixee/commons": "2.0.0-alpha.26",
         "@ulixee/execute-js-plugin": "2.0.0-alpha.25",
         "@ulixee/hero-core": "2.0.0-alpha.25",
         "@ulixee/hero-interfaces": "2.0.0-alpha.25",

@@ -28,6 +28,9 @@ devDependencies:
   '@ulixee/cloud':
     specifier: 2.0.0-alpha.25
     version: 2.0.0-alpha.25
+  '@ulixee/commons':
+    specifier: 2.0.0-alpha.26
+    version: 2.0.0-alpha.26
   '@ulixee/execute-js-plugin':
     specifier: 2.0.0-alpha.25
     version: 2.0.0-alpha.25
@@ -374,6 +377,19 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
+
+  /@ulixee/commons@2.0.0-alpha.26:
+    resolution: {integrity: sha512-YM+f/ADGlqYiU0jnAbTvtcW82UZ7IIM/nUkNZnAzk0Pvef/W6T5WH7IrU9q34M2VNF2h+pOs1+fzXhWSewu/aQ==}
+    engines: {node: '>=18.0.0'}
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.22
+      bech32: 2.0.0
+      devtools-protocol: 0.0.1137505
+      https-proxy-agent: 5.0.1
+      semver: 7.5.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@ulixee/crypto@2.0.0-alpha.25:
     resolution: {integrity: sha512-PCBo7Wc1z1hsE/ico3aoB8e+QOUlimMU3+0vTgiARMbJ77TosKy1wJf5DBMl573Rh41avSGnoNZAdgmB1lDSkA==}
