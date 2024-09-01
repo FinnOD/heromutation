@@ -4,7 +4,7 @@
     "description": "",
     "scripts": {
         "build": "tsc",
-        "dev": "node build/index.js"
+        "dev": "tsc && node build/run.js"
     },
     "keywords": [],
     "license": "",
