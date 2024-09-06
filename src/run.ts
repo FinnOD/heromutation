@@ -3,25 +3,27 @@ import Hero, {
   ConnectionToHeroCore,
 } from '@ulixee/hero';
 import { TransportBridge } from '@ulixee/net';
-import { registerObserverClientPlugin, registerObserverCorePlugin } from './plugin-Observer';
 
-function makeMutationObserverCallback(dataCallback: (data: any) => void) {
-    const observerCallback: MutationCallback = (mutations, observer) => {
-        for (const mutation of mutations) {
-            if ((mutation.target as Element).classList.contains("my-city__seconds")) {
-                dataCallback(
-                    `Mutation observed ${mutation.target.parentElement?.parentElement?.innerText}`,
-                );
+import { registerObserverClientPlugin, registerObserverCorePlugin } from './plugin-Observer';
+import type { JSONObject } from "./types";
+
+function processMutations(mutations: MutationRecord[]): JSONObject {
+
+    let outData = {"times": [] as string[]};
+    for (const mutation of mutations) {
+        if ((mutation.target as Element).classList.contains("my-city__seconds")) {
+            let inner = mutation.target.parentElement?.parentElement?.innerText;
+            if (inner !== undefined) {
+                outData["times"].push(inner);
             }
         }
-    };
-
-    return observerCallback;
+    }
+    
+    return outData;
 }
 
-function dataCallback(data: any) {
-    console.log(`data: ${data}`);
-    // window.HERO_LOG(data);
+async function dataCallback(data: ReturnType<typeof processMutations>): Promise<void> {
+    console.log(data);
 }
 
 async function main() {
@@ -38,7 +40,7 @@ async function main() {
     // Register observer, but don't start it yet.
     await hero.registerObserver(
         "M",
-        makeMutationObserverCallback,
+        processMutations,
         dataCallback,
     );
     await hero.waitForMillis(1_000);
@@ -46,14 +48,15 @@ async function main() {
     // Start observer, wait 5 seconds, then disconnect.
     // This should be seen in the console how its only 5 seconds worth? ie. it can be turned off.
     await hero.observe("M");
-    await hero.waitForMillis(5_000);
+    // await hero.waitForMillis(5_000);
+    await new Promise(resolve => setTimeout(resolve, 5_000));
     await hero.disconnect("M");
 
-    await hero.waitForMillis(100_000);
+    await hero.waitForMillis(1_000);
     await hero.close();
 }
 
 
-require("events").EventEmitter.defaultMaxListeners = 100;
+require("events").EventEmitter.defaultMaxListeners = 1000;
 HeroCore.use(registerObserverCorePlugin);
 HeroCore.start().then(main).then(() => process.exit()).catch(console.error);
